@@ -1,19 +1,24 @@
-auto text = "Lorem ipsum dolor sit amet";
+// Подключаем заголовок cstdio из стандартной библиотеки
+#include <cstdio>
 
-std::istringstream iss(text);
-std::vector<std::string> words(
-   std::istream_iterator<std::string>{iss},
-   std::istream_iterator<std::string>());
-auto count = words.size();
-
-
-// or
-
-size_t count = 0;
-std::vector<std::string> words;
-std::string token;
-std::istringstream tokenStream(text);
-while (std::getline(tokenStream, token, ' '))
+// Определяем функцию main, возвращающую целочисленный код завершения.
+int main()
 {
-   ++count;
+    // Объявляем переменные a и b, инициализируем их нулями.
+    int a = 0;
+    int b = 0;
+
+    // Считываем из стандартного ввода данные в определённом формате: "%d %d"
+    //  "%d" означает "считать целое число и положить результат по переданному адресу",
+    //  " " означает "считать любое количество пробелов"
+    //  адреса для записи считанных значений передаются в дополнительных аргументах, начиная со 2-го
+    // Документация: https://www.opennet.ru/man.shtml?topic=scanf&category=3&russian=0
+    std::scanf("%d %d", &a, &b);
+
+    // Записываем данные в определённом формате: "%d %d\n"
+    //  "\n" кодирует символ переноса строки
+    // Документация: https://www.opennet.ru/man.shtml?topic=printf&category=3&russian=0
+    std::printf("%d %d\n", a, b);
+
+    size_t count = 0;
 }
